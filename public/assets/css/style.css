@@ -1,0 +1,26 @@
+.carousel-item {
+    position: relative;
+    height: 60vh; 
+    max-height: 500px;
+}
+
+.carousel-item img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+
+.carousel-item::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+body {
+    padding-top: 50px;
+}
+
