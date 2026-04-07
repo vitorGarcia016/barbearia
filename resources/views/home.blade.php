@@ -8,15 +8,15 @@
     </header>
 
     <section>
-        <x-home.home-carousel/>
-
+        <div style="height: 650px;">
+            <img src="{{ asset('assets/images/imagemTopo.jpg') }}"
+                class="img-fluid h-100 w-100 object-fit-cover" alt="imagemTopo" style="filter: brightness(60%);">
+        </div>
     </section>
 
     <section>
         <x-home.home-products />
-
     </section>
-
 
     <hr>
 
@@ -36,9 +36,8 @@
         </div>
     </section>
 
-
     <footer>
-        <x-home.home-footer/>
+        <x-home.home-footer />
     </footer>
 
 @endsection

@@ -23,7 +23,7 @@
                         <a class="btn btn-outline-light ms-lg-3"href="">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-outline-light ms-lg-3" href="">Agendamento</a>
+                        <a class="btn btn-outline-light ms-lg-3" href="">Agendamento Online</a>
                     </li>
                 </ul>
             </div>
