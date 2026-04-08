@@ -20,7 +20,7 @@
                 </ul>
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="btn btn-outline-light ms-lg-3"href="">Login</a>
+                        <a class="btn btn-outline-light ms-lg-3"href="{{route('login')}}">Login</a>
                     </li>
                     <li class="nav-item">
                         <a class="btn btn-outline-light ms-lg-3" href="">Agendamento Online</a>
