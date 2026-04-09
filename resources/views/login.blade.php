@@ -51,6 +51,12 @@
 
                 <p> <a href="{{route('register')}}" class="text-white fw-semibold text-decoration-none">Não tem uma conta?</a> </p>
 
+                @if (session('loginError'))
+
+                    <div class="text-danger d-flex justify-content-center align-items-center"><p class="m-0">{{session('loginError')}}</p></div>
+                    
+                @endif
+
             </form>
         </div>
     </div>
