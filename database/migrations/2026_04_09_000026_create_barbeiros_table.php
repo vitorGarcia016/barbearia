@@ -11,14 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('schedulings', function (Blueprint $table) {
+        Schema::create('barbeiros', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->foreignId("barbeiro_id")->constrained();
-            $table->foreignId("cliente_id")->constrained();
-            $table->foreignId("day_id")->constrained();
-            $table->time("scheduling_time");
-            $table->timestamps();
+            $table->string("name", 100);
+            $table->foreignId("user_id")->constrained()->unique();
+            $table->date("last_access")->nullable();
             $table->softDeletes();
+            $table->timestamps();
         });
     }
 
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('schedulings');
+        Schema::dropIfExists('barbeiros');
     }
 };
