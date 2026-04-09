@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 use Termwind\Components\Raw;
 
 //Route from home 
-Route::get("/home", [HomeController::class, "showHome"])->name("home");
+Route::get("/", [HomeController::class, "showHome"])->name("home");
 
 
 //Route from authentication
