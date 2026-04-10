@@ -17,6 +17,7 @@ Route::controller(AuthenticationController::class)->group(function(){
         Route::get("login", "showLoginPage")->name("login");
         Route::post("login-submit", "loginSubmit")->name("loginSubmit");
         Route::get("register", "showRegisterPage")->name("register");
+        Route::post("register-submit", "registerSubmit")->name("registerSubmit");
     });
 
     Route::get("logout", "logout")->name("logout");

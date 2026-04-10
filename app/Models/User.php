@@ -10,4 +10,8 @@ class User extends Authenticatable
     public function role(){
         return $this->belongsTo(Role::class);
     }
+
+    public function cliente(){
+        return $this->hasOne(Cliente::class);
+    }
 }
