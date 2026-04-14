@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Carbon\Carbon;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -26,7 +27,7 @@ class RegisterRequest extends FormRequest
             "name" => "required|string|min:10|max:100",
             "cpf" => "required|string|min:11|max:11",
             "email" => "required|email|max:255",
-            "birthdate" => "required|date|before:today",
+            "birthdate" => "required|date|before:today|after: " . Carbon::now()->subYear(100)->format("Y-m-d"),
             "password" => "required|min:6|max:30|confirmed",
             "password_confirmation" => "required"
         ];
@@ -56,6 +57,7 @@ class RegisterRequest extends FormRequest
             "birthdate.required" => "A data de nascimento é obrigatória.",
             "birthdate.date" => "Informe uma data válida.",
             "birthdate.before" => "A data de nascimento deve ser anterior a hoje.",
+            "birthdate.after" => "Informe uma data válida.",
 
             
             "password.required" => "A senha é obrigatória.",

@@ -14,7 +14,7 @@
 
                     <h3 class="text-center mb-4">Criar Conta</h3>
 
-                    <form action="{{ route('registerSubmit') }}" method="POST" novalidate>
+                    <form action="{{ route('registerSubmit') }}" method="POST">
                         @csrf
 
 
@@ -22,7 +22,7 @@
                             <label class="form-label">Nome</label>
                             <div class="input-group">
                                 <span class="input-group-text"><i class="fa fa-user"></i></span>
-                                <input type="text" class="form-control" name="name" placeholder="Seu nome" required>
+                                <input type="text" class="form-control" name="name" placeholder="Seu nome" value="{{ old('name') }}" required>
                             </div>
                         </div>
                         @error('name')
@@ -39,7 +39,7 @@
                             <label class="form-label">CPF</label>
                             <div class="input-group">
                                 <span class="input-group-text"><i class="fa fa-id-card""></i></span>
-                                <input type="text" class="form-control" name="cpf" placeholder="Seu CPF" required>
+                                <input type="text" class="form-control" name="cpf" placeholder="Seu CPF" value="{{ old('cpf') }}" required>
                             </div>
                         </div>
                         @error('cpf')
@@ -57,7 +57,7 @@
                             <label class="form-label">Email</label>
                             <div class="input-group">
                                 <span class="input-group-text"><i class="fa fa-envelope"></i></span>
-                                <input type="email" class="form-control" name="email" placeholder="Seu email" required>
+                                <input type="email" class="form-control" name="email" placeholder="Seu email" value="{{ old('email') }}"  required>
                             </div>
                         </div>
                         @error('email')
@@ -79,7 +79,7 @@
                                 </span>
 
                                 <input type="date" class="form-control" name="birthdate" max="{{ date('Y-m-d') }}"
-                                    required>
+                                    value="{{ old('birthdate') }}" required>
                             </div>
                         </div>
                         @error('birthdate')
@@ -97,7 +97,7 @@
                             <label class="form-label">Senha</label>
                             <div class="input-group">
                                 <span class="input-group-text"><i class="fa fa-lock"></i></span>
-                                <input type="text" class="form-control" name="password" placeholder="Senha" required>
+                                <input type="text" class="form-control" name="password" placeholder="Senha" value="{{ old('password') }}" required>
                             </div>
                         </div>
                         @error('password')
@@ -116,7 +116,7 @@
                             <div class="input-group">
                                 <span class="input-group-text"><i class="fa fa-lock"></i></span>
                                 <input type="text" class="form-control" name="password_confirmation"
-                                    placeholder="Confirme a senha" required>
+                                    placeholder="Confirme a senha" value="{{ old('password_confirmation') }}" required>
                             </div>
                         </div>
                         @error('password_confirmation')
