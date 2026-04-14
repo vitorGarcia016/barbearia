@@ -8,6 +8,7 @@ use App\Http\Service\AuthenticationService;
 use App\Models\Cliente;
 use App\Models\User;
 use GuzzleHttp\Client;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -19,7 +20,7 @@ class AuthenticationController extends Controller
 
     public function showLoginPage()
     {
-        return view("login");
+        return view("auth.login");
     }
 
     public function loginSubmit(LoginRequest $request)
@@ -29,28 +30,13 @@ class AuthenticationController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            $user = Auth::user();
+            if(Auth::user()->email_verified_at == null){
+                $this->logout($request);
 
-            $roleUserLogged = $user->role->code;
-            $roleBarbeiroCode = 1;
-            $roleClienteCode = 2;
-            $roleAdminCode = 3;
-
-            $routeRedirect = "";
-
-            if ($roleUserLogged == $roleBarbeiroCode) {
-                $routeRedirect = "barbeiro";
-            } elseif ($roleUserLogged == $roleClienteCode){
-                $routeRedirect = "cliente";
-                $user
-                    ->cliente
-                    ->update(["last_access" => date("Y-m-d H-i-s")]);
-
-            } elseif ($roleUserLogged == $roleAdminCode) {
-                $routeRedirect = "admin";
+                return back()->withInput()->with("loginError", "Email não verificado!");
             }
 
-            return redirect()->to($routeRedirect);
+            return redirect()->route("home");
         }
 
         return back()->withInput()->with("loginError", "Login Inválido!");
@@ -58,7 +44,7 @@ class AuthenticationController extends Controller
 
     public function showRegisterPage()
     {
-        return view("register");
+        return view("auth.register");
     }
 
     public function registersubmit(RegisterRequest $request){
@@ -84,7 +70,11 @@ class AuthenticationController extends Controller
     
             DB::commit();
 
-            return redirect()->to("login");
+            Auth::login($user);
+
+            event(new Registered($user));
+
+            return redirect()->route("login");
 
         } catch (\Exception $e) {
             DB::rollBack();
@@ -92,9 +82,6 @@ class AuthenticationController extends Controller
         }
 
 
-        
-
-        
     }
 
 

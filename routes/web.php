@@ -3,17 +3,20 @@
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\HomeController;
 use App\Http\Middleware\CheckUserLogged;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
 
 
 //Route from home 
-Route::get("/", [HomeController::class, "showHome"])->name("home");
+Route::get("/", [HomeController::class, "showIndex"])->name("index");
 
 
 //Route from authentication
-Route::controller(AuthenticationController::class)->group(function(){
+Route::controller(AuthenticationController::class)->group(function () {
 
-    Route::middleware([CheckUserLogged::class])->group(function(){
+    Route::middleware([CheckUserLogged::class])->group(function () {
+
+        //Authentication
         Route::get("login", "showLoginPage")->name("login");
         Route::post("login-submit", "loginSubmit")->name("loginSubmit");
         Route::get("register", "showRegisterPage")->name("register");
@@ -24,19 +27,22 @@ Route::controller(AuthenticationController::class)->group(function(){
 });
 
 
+//Email verification
+Route::get("/email/verify", function () {
+    return view("auth.verify-email");
+})->name("verification.notice");
+
+Route::get("/email/verify/{id}/{hash}", function (EmailVerificationRequest $request) {
+    $request->fulfill();
+
+    return redirect("/home");
+})->middleware(["auth","signed"])->name("verification.verify");
+
+
+
 //Routes for authenticated users
-Route::middleware(["auth"])->group(function(){
-    Route::get("barbeiro", function(){
-        echo "barbeiro";
-    })->name("barbeiro");
-
-    Route::get("cliente", function(){
-        echo "cliente";
-    })->name("cliente");
-
-    Route::get("admin", function(){
-        echo "admin";
-    })->name("admin");
-
+Route::middleware(["auth", "verified"])->group(function () {
+    Route::get("home", function(){
+        echo "home";
+    })->name("home");
 });
-

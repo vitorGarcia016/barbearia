@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string("email", 255)->unique();
             $table->string("password", 255);
             $table->foreignId("role_id")->constrained();
+            $table->date("email_verified_at")->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
