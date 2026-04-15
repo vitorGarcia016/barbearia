@@ -68,12 +68,12 @@ class AuthenticationController extends Controller
             $cliente->user_id = $user->id;
             $cliente->save();
     
-            DB::commit();
-
+            
             Auth::login($user);
-
+            
             event(new Registered($user));
-
+            
+            DB::commit();
             return redirect()->route("login");
 
         } catch (\Exception $e) {
