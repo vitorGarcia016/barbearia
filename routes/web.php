@@ -5,7 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Middleware\CheckUserLogged;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Http\Request;
 
 //Route from home 
 Route::get("/", [HomeController::class, "showIndex"])->name("index");
@@ -23,20 +23,27 @@ Route::controller(AuthenticationController::class)->group(function () {
         Route::post("register-submit", "registerSubmit")->name("registerSubmit");
     });
 
-    Route::get("logout", "logout")->name("logout");
+    Route::post("logout", "logout")->name("logout");
 });
 
 
 //Email verification
 Route::get("/email/verify", function () {
     return view("auth.verify-email");
-})->name("verification.notice");
+})->name("verification.notice")->middleware("auth");
 
 Route::get("/email/verify/{id}/{hash}", function (EmailVerificationRequest $request) {
     $request->fulfill();
 
     return redirect("/home");
 })->middleware(["auth","signed"])->name("verification.verify");
+
+
+Route::post('/email/verification-notification', function (Request $request) {
+    $request->user()->sendEmailVerificationNotification();
+ 
+    return back()->with('message', 'Verification link sent!');
+})->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
 
 

@@ -18,7 +18,7 @@ class CheckUserLogged
     {
 
         if (Auth::check()) {
-            return redirect()->back();
+            return redirect()->route('home');
         }
 
         return $next($request);

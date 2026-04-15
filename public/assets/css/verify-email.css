@@ -1,0 +1,95 @@
+body{
+    background-image: url('../images/loginBackground2.jpg');
+    background-size: cover;
+    color: white;
+    font-family: poppins, sans-serif;
+}
+
+
+.verify-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.verify-card {
+    width: 400px;
+    padding: 30px;
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+
+    text-align: center;
+    color: #fff;
+}
+
+
+.verify-card .icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+    color: #4da6ff;
+}
+
+
+.verify-card h2 {
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+
+.verify-card p {
+    font-size: 14px;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+
+.btn-primary {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 30px;
+
+    background: linear-gradient(135deg, #4da6ff, #0066ff);
+    color: #fff;
+    font-weight: bold;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 10px #4da6ff;
+}
+
+
+.btn-logout {
+    margin-top: 10px;
+    background: transparent;
+    border: none;
+    color: #ccc;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.btn-logout:hover {
+    color: #fff;
+}
+
+
+.alert-success {
+    background: rgba(0, 255, 150, 0.1);
+    border: 1px solid rgba(0, 255, 150, 0.3);
+    color: #00ffae;
+
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}

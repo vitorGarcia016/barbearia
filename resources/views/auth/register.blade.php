@@ -97,7 +97,7 @@
                             <label class="form-label">Senha</label>
                             <div class="input-group">
                                 <span class="input-group-text"><i class="fa fa-lock"></i></span>
-                                <input type="text" class="form-control" name="password" placeholder="Senha" value="{{ old('password') }}" required>
+                                <input type="password" class="form-control" name="password" placeholder="Senha" value="{{ old('password') }}" required>
                             </div>
                         </div>
                         @error('password')
@@ -115,7 +115,7 @@
                             <label class="form-label">Confirmar Senha</label>
                             <div class="input-group">
                                 <span class="input-group-text"><i class="fa fa-lock"></i></span>
-                                <input type="text" class="form-control" name="password_confirmation"
+                                <input type="password" class="form-control" name="password_confirmation"
                                     placeholder="Confirme a senha" value="{{ old('password_confirmation') }}" required>
                             </div>
                         </div>

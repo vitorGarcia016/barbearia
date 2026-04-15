@@ -74,7 +74,8 @@ class AuthenticationController extends Controller
             event(new Registered($user));
             
             DB::commit();
-            return redirect()->route("login");
+            
+            return redirect()->route("verification.notice");
 
         } catch (\Exception $e) {
             DB::rollBack();

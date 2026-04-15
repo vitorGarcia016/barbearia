@@ -16,24 +16,30 @@
                 @csrf
                 <div class="input-group mb-3">
                     <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
-                    <input type="email" class="form-control" placeholder="Email" name="email" value="{{old('email')}}" required>
+                    <input type="email" class="form-control" placeholder="Email" name="email"
+                        value="{{ old('email') }}" required>
                 </div>
                 @error('email')
                     <div class="error-message text-danger">
                         <ul>
-                            <li><p>{{$message}}</p></li>
+                            <li>
+                                <p>{{ $message }}</p>
+                            </li>
                         </ul>
                     </div>
                 @enderror
 
                 <div class="input-group mb-3">
                     <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
-                    <input type="password" class="form-control" placeholder="Senha" name="password" value="{{old('password')}}" required>
+                    <input type="password" class="form-control" placeholder="Senha" name="password"
+                        value="{{ old('password') }}" required>
                 </div>
                 @error('password')
                     <div class="error-message text-danger">
                         <ul>
-                            <li><p>{{$message}}</p></li>
+                            <li>
+                                <p>{{ $message }}</p>
+                            </li>
                         </ul>
                     </div>
                 @enderror
@@ -49,12 +55,13 @@
 
                 <button class="btn btn-light w-100 text-dark fw-semibold">Entrar</button>
 
-                <p> <a href="{{route('register')}}" class="text-white fw-semibold text-decoration-none">Não tem uma conta?</a> </p>
+                <p> <a href="{{ route('register') }}" class="text-white fw-semibold text-decoration-none">Não tem uma
+                        conta?</a> </p>
 
                 @if (session('loginError'))
-
-                    <div class="text-danger d-flex justify-content-center align-items-center"><p class="m-0">{{session('loginError')}}</p></div>
-                    
+                    <div class="text-danger d-flex justify-content-center align-items-center">
+                        <p class="m-0">{{ session('loginError') }}</p>
+                    </div>
                 @endif
 
             </form>
