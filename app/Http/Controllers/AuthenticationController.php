@@ -56,7 +56,7 @@ class AuthenticationController extends Controller
         try {
             $user = new User();
             $user->name = $data["name"];
-            $user->cpf = $data["cpf"];
+            $user->phone = $data["phone"];
             $user->email = $data["email"];
             $user->date_birth = $data["birthdate"];
             $user->password = bcrypt($data["password"]);

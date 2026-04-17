@@ -36,13 +36,13 @@
                         @enderror
 
                         <div class="mb-3">
-                            <label class="form-label">CPF</label>
+                            <label class="form-label">Telefone</label>
                             <div class="input-group">
-                                <span class="input-group-text"><i class="fa fa-id-card""></i></span>
-                                <input type="text" class="form-control" name="cpf" placeholder="Seu CPF" value="{{ old('cpf') }}" required>
+                                <span class="input-group-text"><i class="fa-solid fa-phone"></i></span>
+                                <input type="tel" class="form-control" name="phone" placeholder="Seu telefone (Apenas números)" value="{{ old('phone') }}" required>
                             </div>
                         </div>
-                        @error('cpf')
+                        @error('phone')
                             <div class="error-message text-danger">
                                 <ul>
                                     <li>

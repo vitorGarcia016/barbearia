@@ -25,8 +25,8 @@ class RegisterRequest extends FormRequest
     {
         return [
             "name" => "required|string|min:10|max:100",
-            "cpf" => "required|string|min:11|max:11",
-            "email" => "required|email|max:255",
+            "phone" => "required|integer|digits:11|unique:users,phone",
+            "email" => "required|email|max:255|unique:users,email",
             "birthdate" => "required|date|before:today|after: " . Carbon::now()->subYear(100)->format("Y-m-d"),
             "password" => "required|min:6|max:30|confirmed",
             "password_confirmation" => "required"
@@ -42,16 +42,17 @@ class RegisterRequest extends FormRequest
             "name.max" => "O nome deve ter no máximo :max caracteres.",
 
             
-            "cpf.required" => "O CPF é obrigatório.",
-            "cpf.string" => "O CPF deve ser um texto válido.",
-            "cpf.min" => "O CPF deve ter :min dígitos.",
-            "cpf.max" => "O CPF deve ter :max dígitos.",
-            "cpf.cpf" => "O CPF informado é inválido.",
+            "phone.required" => "O telefone é obrigatório.",
+            "phone.integer" => "O telefone deve ser um número válido.",
+            "phone.digits" => "O telefone deve ser um número válido.",
+            "phone.unique" => "O telefone informado já está em uso.",
+            
 
             
             "email.required" => "O email é obrigatório.",
             "email.email" => "Informe um email válido.",
             "email.max" => "O email deve ter no máximo :max caracteres.",
+            "email.unique" => "O email informado já está em uso.",
 
             
             "birthdate.required" => "A data de nascimento é obrigatória.",
