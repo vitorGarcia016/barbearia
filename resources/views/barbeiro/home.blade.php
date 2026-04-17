@@ -1,0 +1,100 @@
+@extends('layout.main_layout')
+@section('title', 'Barbeiro')
+
+@section('css')
+    <link rel="stylesheet" href="{{ asset('assets/css/home-barbeiro.css') }}">
+@endsection
+
+@section('content')
+
+    
+    <nav class="navbar navbar-dark bg-dark shadow">
+        <div class="container">
+            <span class="navbar-brand"><span><img src="{{asset('assets/images/logo.jpg')}}" class="nav-logo" alt="logo"></span> Barbearia MV</span>
+
+            
+            <a href="{{route('logout')}}" class="btn btn-outline-light">
+                <i class="bi bi-box-arrow-right"></i> Sair
+            </a>
+        </div>
+    </nav>
+
+    <main class="container py-5">
+
+        
+        <div class="hero p-5 mb-5">
+            <h2>Painel do Barbeiro</h2>
+            <p class="mb-0">Gerencie seus horários, atendimentos e clientes com facilidade.</p>
+        </div>
+
+        <div class="row g-4">
+
+            
+            <div class="col-12 col-md-6 col-lg-4">
+                <a href="" class="text-decoration-none text-dark">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body">
+                            <div class="icon-box text-primary mb-3"><i class="bi bi-calendar-plus"></i></div>
+                            <h5 class="card-title">Criar Horários</h5>
+                            <p class="card-text text-muted">Defina seus horários disponíveis.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            
+            <div class="col-12 col-md-6 col-lg-4">
+                <a href="" class="text-decoration-none text-dark">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body">
+                            <div class="icon-box text-success mb-3"><i class="bi bi-calendar-check"></i></div>
+                            <h5 class="card-title">Horários Disponíveis</h5>
+                            <p class="card-text text-muted">Gerencie seus horários cadastrados.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            
+            <div class="col-12 col-md-6 col-lg-4">
+                <a href="" class="text-decoration-none text-dark">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body">
+                            <div class="icon-box text-warning mb-3"><i class="bi bi-people"></i></div>
+                            <h5 class="card-title">Cortes Agendados</h5>
+                            <p class="card-text text-muted">Veja seus clientes marcados.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            
+            <div class="col-12 col-md-6 col-lg-4">
+                <a href="" class="text-decoration-none text-dark">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body">
+                            <div class="icon-box text-secondary mb-3"><i class="bi bi-clock-history"></i></div>
+                            <h5 class="card-title">Histórico</h5>
+                            <p class="card-text text-muted">Atendimentos já realizados.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            
+            <div class="col-12 col-md-6 col-lg-4">
+                <a href="" class="text-decoration-none text-dark">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body">
+                            <div class="icon-box text-info mb-3"><i class="bi bi-person"></i></div>
+                            <h5 class="card-title">Meu Perfil</h5>
+                            <p class="card-text text-muted">Atualize suas informações.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+@endsection

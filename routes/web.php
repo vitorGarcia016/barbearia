@@ -23,7 +23,7 @@ Route::controller(AuthenticationController::class)->group(function () {
         Route::post("register-submit", "registerSubmit")->name("registerSubmit");
     });
 
-    Route::post("logout", "logout")->name("logout");
+    Route::get("logout", "logout")->name("logout");
 });
 
 
@@ -49,7 +49,5 @@ Route::post('/email/verification-notification', function (Request $request) {
 
 //Routes for authenticated users
 Route::middleware(["auth", "verified"])->group(function () {
-    Route::get("home", function(){
-        echo "home";
-    })->name("home");
+    Route::get("home", [HomeController::class, "showHome"])->name("home");
 });
