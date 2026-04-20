@@ -4,7 +4,7 @@
 @section('content')
 
     <header>
-        <x-home.home-nav-bar />
+        <x-index.index-nav-bar />
     </header>
 
     <section>
@@ -15,7 +15,7 @@
     </section>
 
     <section>
-        <x-home.home-products />
+        <x-index.index-products />
     </section>
 
     <hr>
@@ -37,7 +37,7 @@
     </section>
 
     <footer>
-        <x-home.home-footer />
+        <x-index.index-footer />
     </footer>
 
 @endsection
