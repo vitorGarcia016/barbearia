@@ -18,13 +18,13 @@ class HomeController extends Controller
         $roleUserLogged = Auth::user()->role->code;
 
         if($roleUserLogged == RoleUsers::BARBEIRO->value){
-            $redirect = "barbeiro";
+            $redirect = "barbeiro_home";
         } elseif($roleUserLogged == RoleUsers::CLIENTE->value){
-            $redirect = "cliente";
+            $redirect = "cliente_home";
         } elseif($roleUserLogged == RoleUsers::ADMIN->value) {
-            $redirect = "admin";
+            $redirect = "admin_home";
         }
 
-        return view("$redirect.home");
+        return view("home.$redirect");
     }
 }
