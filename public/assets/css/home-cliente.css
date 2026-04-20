@@ -1,0 +1,56 @@
+body {
+    background: #111;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)),
+        url('../images/loginBackground.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    border-radius: 16px;
+}
+
+.hero h2 {
+    font-weight: 700;
+}
+
+.card {
+    border-radius: 16px;
+    transition: .25s ease;
+    background: #1c1c1c;
+    color: #fff;
+}
+
+.card .text-muted {
+    color: #aaa !important;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .1);
+}
+
+.icon-box {
+    font-size: 1.8rem;
+}
+
+.nav-logo {
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+    border-radius: 50%; 
+    border: 2px solid #0c0c0b; 
+    transition: 0.3s;
+}
+
+.nav-logo:hover {
+    transform: scale(1.1);
+}

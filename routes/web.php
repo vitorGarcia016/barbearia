@@ -49,5 +49,9 @@ Route::post('/email/verification-notification', function (Request $request) {
 
 //Routes for authenticated users
 Route::middleware(["auth", "verified"])->group(function () {
+
+    //Home
     Route::get("home", [HomeController::class, "showHome"])->name("home");
+
+    
 });
